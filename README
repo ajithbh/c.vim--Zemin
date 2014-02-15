@@ -1,0 +1,9 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4864
+
+This script contains two vim files: "c.vim" and "workpath.vim".
+"workpath.vim" is used to set the current work path, which contains
+source code you want to edit and relative tags file. It works together with
+the other syntax script "c.vim". "c.vim" searches the tags file to identify
+different syntax items, such as macros, typedefs, structs, enums, etc. So, if
+you want to use the "c.vim" to highlight your C programs, you need to assign
+the work path which contains the tags file of your C programs.

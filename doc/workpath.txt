@@ -1,0 +1,104 @@
+*workpath.txt*	For Vim version 7.4	Last change: 2014 February 02
+
+		    Author: Brook L. (Brook_L@163.com)
+
+1. Overview					|workpath-intro|
+2. Installation					|workpath-install|
+3. Usage					|workpath-using|
+4. Todo						|workpath-todo|
+
+==============================================================================
+						*workpath-intro*
+1. Overview~
+
+The "workpath" plugin is used to set the current work path, which contains
+source code you want to edit and relative tags file. It works together with
+the other syntax script "c.vim". "c.vim" searches the tags file to identify
+different syntax items, such as macros, typedefs, structs, enums, etc. So, if
+you want to use the "c.vim" to highlight your C programs, you need to assign
+the work path which contains the tags file of your C programs.
+You can use the "workpath" plugin to change work path conveniently.
+
+==============================================================================
+						*workpath-install*
+2. Installation~
+
+1. Download the c.zip file and unzip the files to the $VIM/vimfiles directory.
+   After this step, you should have the following three files (the directory
+   structure should be preserved):
+
+	after/syntax/c.vim  - syntax script for C language
+	plugin/workpath.vim - set tags file path for "c.vim"
+	doc/workpath.txt    - documentation (help) file
+
+2. Change to the $VIM/vimfiles/doc directory, and run the ":helptags ."
+   command to process the workpath help file. Without this step, you can not
+   jump to the workpath help topics.
+3. Restart Vim.
+
+==============================================================================
+						*workpath-using*
+3. Usage~
+
+The workpath plugin can be used by the following steps:
+
+1. Add work path
+   There is a list in workpath.vim to contain all your work path. You should
+   add all your work path to the list manually. The name of the list is
+   "g:WorkPathList". It's as follows in workpath.vim:
+
+	let g:WorkPathList=[
+		    \"workpath0",
+		    \"workpath1",
+		    \...,
+		    \"workpathn"]
+
+   Set "workpathn" to your own workpath.
+
+2. Set default work path
+   There is a global variable to contain the default index of the work path
+   list, which specify the default work path. This variable is "g:WorkPathIdx".
+   You can set it to the most frequently used work path. For example, if you
+   usually work in "workpath0", you can set "g:WorkPathIdx" to 0:
+
+	let g:WorkPathIdx=0
+
+   The value of "g:WorkPathIdx" should be smaller than the length of
+   "g:WorkPathList".
+
+3. Query work path list
+   You can use the function "WP_getwp()" to query the work path list by using the
+   command ":call WP_getwp()" under normal mode. Then, you can see the list of
+   work path and current work path as follows:
+
+	List of work path:
+	    0: workpath0
+	    1: workpath1
+	    ...
+	    n: workpathn
+	Current work path:
+	    m: workpathm
+
+4. Change work path
+   If you are not working under the default work path, you should change work
+   path to your current one. You can use the function "WP_setwp()" to do it. For
+   example, if you are working under "workpath1", you can use the command
+   ":call WP_setwp(1)" to change to "workpath1". After that, you will see the
+   current workpath as follows:
+
+	Current work path:
+	    1: workpath1
+
+   If you have forgotten the list of work path, you can query it first through
+   step 3. In this way, you can use "c.vim" to highlight your C programs under
+   "workpath1" conveniently.
+
+==============================================================================
+						*workpath-todo*
+4. Todo~
+
+This plugin is created to specify the path of tags file for "c.vim" to
+highlight current editing or scanning C programs. But if "c.vim" can detect
+the path of tags file automatically, this plugin is no needed any more.
+
+vim:tw=78:ts=8:noet:ft=help:
