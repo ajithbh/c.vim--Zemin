@@ -24,7 +24,7 @@
 " Specify the tags file to search syntax items for different project.
 " The two global variables "g:WorkPathList" and "g:WorkPathIdx" are defined in 
 " "workpath.vim" which is under the path "Vim\vimfiles\plugin\".
-let b:TagsFile=g:WorkPathList[g:WorkPathIdx] . '\tags'
+let b:TagsFile=g:WorkPathList[g:WorkPathIdx] . 'tags'
 
 for b:KEYWORD_Line in readfile(b:TagsFile)
 

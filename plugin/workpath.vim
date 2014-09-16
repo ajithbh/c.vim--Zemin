@@ -8,9 +8,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:WorkPathList=[
-            \'E:\work\program\tri_sys_fpga_dsp_fp\branches\v2.6.6_bugfix\GNSS_TriSys_DSP_6414\code',
-            \'E:\work\program\GT_SuWen\trunk\GT_SuWen_ATmega328P\Code']
-let g:WorkPathIdx=1
+            \'/home/user/.vim/']
+let g:WorkPathIdx=0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
